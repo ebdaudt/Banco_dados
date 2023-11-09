@@ -41,7 +41,7 @@ create table usuarios(
 ### Criar tabela de produtos
 ```
 create table produtos (
-    id int not null auto_increment;
+    id int not null auto_increment,
     modelo varchar(120),
     nome varchar(120) not null,
     valor float not null,
@@ -54,7 +54,7 @@ create table produtos (
 ```
 create table carrinho(
     id int not null auto_increment,
-    id_usuario usuario int not null,
+    id_usuario int not null,
     id_produto int not null,
     primary key(id),
     foreign key(id_usuario) references usuarios(id),
@@ -76,10 +76,8 @@ insert into produtos(modelo ,nome, valor) values('nike','camiseta','199.99');
 
 ### Inserir carrinho
 ```
-insert into carrinho(id_usuario, id_produto) values(43, 234);
-insert into carrinho(id_usuario, id_produto) values(43, 120);
-insert into carrinho(id_usuario, id_produto) values(43, 79);
-insert into carrinho(id_usuario, id_produto) values(43, 9);
+insert into carrinho(id_usuario, id_produto) values(1, 1);
+
 ```
 
 ### Listar todas as colunas de usuarios
@@ -99,16 +97,16 @@ select nome, email from usuarios;
 
 ### Listar usuarios pelo id
 ```
-select * from usuarios where id = 23;
+select * from usuarios where id = 1;
 ```
 
 ### Verificar produto dno carrinho pelo id do usuario
 ```
-select * from carrinho where id = 23;
+select * from carrinho where id = 1;
 ```
 ### Verificar produtos no carrinho pelo id usuarios
 ```
 select nome
 from produtos p, carrinho c
-where id_usuario = 23 AND p.id = c.id_produto;
+where id_usuario = 1 AND p.id = c.id_produto;
 ```
